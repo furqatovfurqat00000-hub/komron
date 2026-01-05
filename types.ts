@@ -22,6 +22,7 @@ export interface Ad {
   category: CategoryType;
   city: string;
   imageUrl: string;
+  videoUrl?: string; // Опциональное поле для видео
   createdAt: string;
   phone: string;
   whatsapp?: string;

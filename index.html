@@ -3,16 +3,210 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarketPlace Pro - Объявления</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="MarketPlace Pro - Платформа для объявлений в Таджикистане. Купить, продать, аренда квартир и услуги.">
+    
+    <!-- PWA meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MarketPro">
+    
+    <title>MarketPlace Pro - Объявления в Таджикистане</title>
+    
+    <link rel="manifest" href="manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Unbounded', sans-serif;
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
+            font-family: var(--font-main);
+            background-color: #f8fafc;
+            margin: 0;
+            -webkit-tap-highlight-color: transparent;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+        
+        .font-heading { font-family: var(--font-heading); }
+        
+        /* Анимированный градиент для текста */
+        .text-gradient-animate {
+            background: linear-gradient(to right, #60a5fa, #a78bfa, #2dd4bf, #60a5fa);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-transparent: transparent;
+            color: transparent;
+            animation: textGradient 6s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+
+        .text-glitch {
+            position: relative;
+            display: inline-block;
+        }
+        .text-glitch::before,
+        .text-glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+        .text-glitch::before {
+            color: #ff00c1;
+            z-index: -1;
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        .text-glitch::after {
+            color: #00fff9;
+            z-index: -2;
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 0); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 0); }
+            40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 0); }
+            60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 0); }
+            80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); }
+            100% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
+            20% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, 0); }
+            40% { clip-path: inset(50% 0 40% 0); transform: translate(2px, 0); }
+            60% { clip-path: inset(15% 0 65% 0); transform: translate(-2px, 0); }
+            80% { clip-path: inset(75% 0 15% 0); transform: translate(2px, 0); }
+            100% { clip-path: inset(45% 0 55% 0); transform: translate(-2px, 0); }
+        }
+
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 45%,
+                rgba(255, 255, 255, 0.4) 50%,
+                transparent 55%
+            );
+            transform: rotate(25deg);
+            animation: shimmer-ray 3s infinite ease-in-out;
+        }
+
+        @keyframes shimmer-ray {
+            0% { transform: translateX(-100%) rotate(25deg); }
+            100% { transform: translateX(100%) rotate(25deg); }
+        }
+
+        .float-anim {
+            animation: floating 4s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Living Background Advanced with Liquid Mesh Effect */
+        .living-bg {
+            background: #020617;
+            position: relative;
+            overflow: hidden;
+            animation: hue-cycle 40s infinite linear;
+        }
+
+        @keyframes hue-cycle {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .living-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 3;
+            mix-blend-mode: overlay;
+        }
+
+        .mesh-container {
+            position: absolute;
+            inset: -100px;
+            filter: url(#gooey);
+            z-index: 1;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: screen;
+            opacity: 0.6;
+            animation: move-blob 25s infinite alternate ease-in-out;
+        }
+
+        @keyframes move-blob {
+            0% { 
+                transform: translate(0, 0) scale(1) rotate(0deg); 
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+            50% { 
+                transform: translate(20vw, 30vh) scale(1.5) rotate(180deg);
+                border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+            }
+            100% { 
+                transform: translate(-10vw, -10vh) scale(1.1) rotate(360deg);
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+        }
+
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f1f5f9;
+            border-top: 5px solid #2563eb;
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 <script type="importmap">
@@ -27,6 +221,34 @@
 </script>
 </head>
 <body>
+    <svg style="position: absolute; width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="gooey">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="40" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 40 -20" result="gooey" />
+          <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <p class="font-heading" style="margin-top: 24px; font-weight: 700; color: #1e293b; font-size: 16px; letter-spacing: -0.05em;">MARKETPRO</p>
+    </div>
+
     <div id="root"></div>
+    
+    <script type="module">
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loading-screen');
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.remove(), 500);
+                }, 400);
+            }
+        });
+    </script>
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>

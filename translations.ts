@@ -38,6 +38,8 @@ export const translations = {
     modalAiBtn: "AI Помощник",
     modalSubmit: "Опубликовать",
     modalPhoto: "Загрузить фото",
+    modalVideo: "Загрузить видео (макс. 25МБ)",
+    videoSizeError: "Файл слишком большой! Максимальный размер 25МБ.",
     modalPhone: "Номер телефона",
     modalWhatsapp: "WhatsApp (необязательно)",
     call: "Позвонить",
@@ -45,7 +47,14 @@ export const translations = {
     free: "Бесплатно",
     today: "Сегодня",
     yesterday: "Вчера",
-    generating: "Генерирую..."
+    generating: "Генерирую...",
+    contactUs: "Связаться с нами",
+    support: "Поддержка",
+    adSuccess: "Объявление успешно опубликовано!",
+    loginSuccess: "Вы успешно вошли в систему",
+    deleteAd: "Удалить",
+    recentSearches: "Недавние поиски",
+    clearHistory: "Очистить"
   },
   tg: {
     searchPlaceholder: "Шумо чӣ меҷӯед?",
@@ -85,6 +94,8 @@ export const translations = {
     modalAiBtn: "Ёвари AI",
     modalSubmit: "Нашр кардан",
     modalPhoto: "Бор кардани акс",
+    modalVideo: "Бор кардани видео (макс. 25МБ)",
+    videoSizeError: "Файл хеле калон аст! Андозаи максималӣ 25МБ.",
     modalPhone: "Рақами телефон",
     modalWhatsapp: "WhatsApp (ихтиёрӣ)",
     call: "Занг задан",
@@ -92,7 +103,14 @@ export const translations = {
     free: "Ройгон",
     today: "Имрӯз",
     yesterday: "Дирӯз",
-    generating: "Генератсия..."
+    generating: "Генератсия...",
+    contactUs: "Бо мо тамос гиред",
+    support: "Дастгирӣ",
+    adSuccess: "Эълон бомуваффақият нашр шуд!",
+    loginSuccess: "Шумо бомуваффақият ворид шудед",
+    deleteAd: "Нест кардан",
+    recentSearches: "Ҷустуҷӯҳои охирин",
+    clearHistory: "Тоза кардан"
   }
 };
 

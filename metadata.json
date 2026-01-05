@@ -1,7 +1,8 @@
 {
-  "name": "Copy of MarketPlace Pro",
+  "name": "MarketPlace Pro",
   "description": "A high-performance classifieds platform for goods and services with AI-powered enhancements and a clean, minimalist design.",
   "requestFramePermissions": [
-    "camera"
+    "camera",
+    "microphone"
   ]
 }
