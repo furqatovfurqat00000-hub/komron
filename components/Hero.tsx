@@ -1,27 +1,30 @@
 
 import React from 'react';
-import { CATEGORIES } from '../constants';
+import { CATEGORIES, CATEGORY_LABELS } from '../constants';
 import { CategoryType } from '../types';
+import { Language, translations } from '../translations';
 
 interface HeroProps {
   onSelectCategory: (category: CategoryType | null) => void;
   onSearch: (query: string) => void;
   activeCategory: CategoryType | null;
+  lang: Language;
 }
 
-const Hero: React.FC<HeroProps> = ({ onSelectCategory, onSearch, activeCategory }) => {
+const Hero: React.FC<HeroProps> = ({ onSelectCategory, onSearch, activeCategory, lang }) => {
+  const t = translations[lang];
+
   return (
     <div className="bg-gradient-to-r from-blue-600 to-blue-800 py-12 px-4 sm:px-6 lg:px-8 text-white">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-6">
-          Найдите всё, что вам нужно в Таджикистане
+          {t.heroTitle}
         </h1>
         
-        {/* Big Search */}
         <div className="relative max-w-2xl mx-auto mb-10">
           <input
             type="text"
-            placeholder="Что вы ищете?"
+            placeholder={t.searchPlaceholder}
             className="w-full px-6 py-4 rounded-full text-gray-900 text-lg focus:outline-none shadow-xl"
             onChange={(e) => onSearch(e.target.value)}
           />
@@ -30,7 +33,6 @@ const Hero: React.FC<HeroProps> = ({ onSelectCategory, onSearch, activeCategory 
           </button>
         </div>
 
-        {/* Category Icons */}
         <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-4">
           {CATEGORIES.map((cat) => (
             <button
@@ -41,8 +43,8 @@ const Hero: React.FC<HeroProps> = ({ onSelectCategory, onSearch, activeCategory 
               <div className={`p-3 rounded-2xl mb-2 shadow-md ${activeCategory === cat.type ? 'bg-white text-blue-600' : 'bg-white/20 text-white'}`}>
                 {cat.icon}
               </div>
-              <span className="text-xs font-medium truncate w-full text-center">
-                {cat.type}
+              <span className="text-[10px] sm:text-xs font-medium truncate w-full text-center">
+                {CATEGORY_LABELS[cat.type][lang]}
               </span>
             </button>
           ))}

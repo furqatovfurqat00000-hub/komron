@@ -36,6 +36,18 @@ export const CATEGORIES: CategoryItem[] = [
   )},
 ];
 
+export const CATEGORY_LABELS: Record<string, {ru: string, tg: string}> = {
+  REAL_ESTATE: { ru: 'Недвижимость', tg: 'Хонаҳо' },
+  AUTO: { ru: 'Авто', tg: 'Мошинҳо' },
+  JOBS: { ru: 'Работа', tg: 'Кор' },
+  SERVICES: { ru: 'Услуги', tg: 'Хизматрасонӣ' },
+  ELECTRONICS: { ru: 'Электроника', tg: 'Электроника' },
+  CLOTHING: { ru: 'Вещи', tg: 'Либос' },
+  ANIMALS: { ru: 'Животные', tg: 'Ҳайвонот' },
+  FREE: { ru: 'Бесплатные', tg: 'Ройгон' },
+  OTHER: { ru: 'Прочее', tg: 'Дигар' }
+};
+
 export const INITIAL_ADS: Ad[] = [
   {
     id: '1',
@@ -47,6 +59,8 @@ export const INITIAL_ADS: Ad[] = [
     city: 'Душанбе',
     imageUrl: 'https://picsum.photos/seed/iphone/400/300',
     createdAt: 'Сегодня, 10:30',
+    phone: '900112233',
+    whatsapp: '900112233',
     isVip: true
   },
   {
@@ -59,54 +73,7 @@ export const INITIAL_ADS: Ad[] = [
     city: 'Худжанд',
     imageUrl: 'https://picsum.photos/seed/car/400/300',
     createdAt: 'Сегодня, 09:15',
-    isVip: false
-  },
-  {
-    id: '3',
-    title: 'Просторная 2-комнатная квартира',
-    price: 650000,
-    currency: 'TJS',
-    description: 'Центр города, евроремонт, 80 кв.м.',
-    category: CategoryType.REAL_ESTATE,
-    city: 'Душанбе',
-    imageUrl: 'https://picsum.photos/seed/apt/400/300',
-    createdAt: 'Вчера, 18:45',
-    isVip: true
-  },
-  {
-    id: '4',
-    title: 'Услуги сантехника круглосуточно',
-    price: 100,
-    currency: 'TJS',
-    description: 'Выезд в течении 30 минут. Качество гарантируем.',
-    category: CategoryType.SERVICES,
-    city: 'Бохтар',
-    imageUrl: 'https://picsum.photos/seed/service/400/300',
-    createdAt: 'Сегодня, 11:00',
-    isVip: false
-  },
-  {
-    id: '5',
-    title: 'Котенок в добрые руки',
-    price: 0,
-    currency: 'TJS',
-    description: 'Очень ласковый, приучен к лотку.',
-    category: CategoryType.ANIMALS,
-    city: 'Душанбе',
-    imageUrl: 'https://picsum.photos/seed/kitten/400/300',
-    createdAt: 'Сегодня, 08:20',
-    isVip: false
-  },
-  {
-    id: '6',
-    title: 'MacBook Pro M3 Max',
-    price: 45000,
-    currency: 'TJS',
-    description: 'Для профессионалов. 32GB RAM, 1TB SSD.',
-    category: CategoryType.ELECTRONICS,
-    city: 'Душанбе',
-    imageUrl: 'https://picsum.photos/seed/macbook/400/300',
-    createdAt: 'Сегодня, 12:00',
+    phone: '900445566',
     isVip: false
   }
 ];
